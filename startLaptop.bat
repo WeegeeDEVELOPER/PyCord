@@ -1,0 +1,1 @@
+C:\Users\Gebruiker\AppData\Local\Programs\Python\Python39\python.exe -i main.py
