@@ -19,7 +19,16 @@ def discordPostData(url, postData, authToken):
 
     if (crl):
         crl.setopt(crl.CAINFO, certifi.where())
+        crl.setopt(crl.POST, 1)
         crl.setopt(crl.URL, url)
+        crl.setopt(crl.USERAGENT, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36")
+        headerList = {}
+        headerList = crl.setopt_string(headerList, "Accept: */*")
+        headerList = crl.setopt_string(headerList, "Content-type: application/json")
+        headerList = crl.setopt_string(headerList, authHead)
+        headerList = crl.setopt_string(headerList, "Host: discordapp.com")
+        contentLength = "Content-Length: " + str(postData)
+        headerList = crl.setopt_string(headerList, contentLength)
         crl.setopt(crl.HEADERFUNCTION, debug.display_header)
         crl.setopt(crl.WRITEDATA, b_obj)
         crl.perform()
