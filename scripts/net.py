@@ -12,7 +12,7 @@ from scripts import debug
 
 def discordPostData(url, postData, authToken):
     authHead = "Authorization: " + str(authToken)
-    contentLength = "Content-Length: " + postData
+    contentLength = "Content-Length: " + str(postData)
 
     b_obj = BytesIO()
     crl = pycurl.Curl()

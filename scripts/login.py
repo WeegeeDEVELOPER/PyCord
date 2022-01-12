@@ -9,7 +9,9 @@ loginUrl = "https://discordapp.com/api/auth/login"
 
 def loginForm():
     os.system('cls')
-    print("Enter credentials below...\n")
+    print("Welcome to PyCord!")
+    print("Version: " + str(status.version))
+    print("\nEnter credentials below...\n")
 
     _email = input("Email: ")
     _pass = input("Password: ")
@@ -35,6 +37,6 @@ def doLogin(mail, password):
         if (net.discordPostData == 200):
             debug.log("Succesfull login request, code: " + str(net.discordPostData))
         else:
-            debug.error(-2, "Login failed, code: " + str(net.discordPostData))
+            debug.error(-3, "Login failed, code: " + str(net.discordPostData))
         
 
