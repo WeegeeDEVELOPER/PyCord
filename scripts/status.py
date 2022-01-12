@@ -7,4 +7,4 @@ inServerList = False
 inDmChat = False
 inServerChat = False
 
-mustDebug = True
+mustDebug = False

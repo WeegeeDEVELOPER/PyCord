@@ -5,7 +5,7 @@ from scripts import status
 from scripts import net
 from scripts import debug
 
-loginUrl = "https://discordapp.com/api/auth/login"
+loginUrl = "https://discord.com/login"
 
 def loginForm():
     os.system('cls')
@@ -28,15 +28,20 @@ def doLogin(mail, password):
         debug.error(-2, "Password can not be empty")
     else:
         os.system('cls')
+
+        print("Logging you in...")
+
         postData = "{\"email\":\""+ _email + "\" , \"password\":\""+ _pass + "\"}"
 
         debug.log(postData)
 
         net.discordPostData(loginUrl, postData, "")
 
-        if (net.discordPostData == 200):
+        if (net.resp == 200):
             debug.log("Succesfull login request, code: " + str(net.discordPostData))
         else:
+            os.system('cls')
+            print("login failed!")
             debug.error(-3, "Login failed, code: " + str(net.discordPostData))
         
 
